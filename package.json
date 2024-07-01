@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.10.4",
     "express": "^4.19.2"
   },
-  "devDependencies": {},
-  "description": ""
+  "description": "1. **Set up your project directory**:\r     ```bash\r     mkdir nodejs-app\r     cd nodejs-app\r     ```"
 }
