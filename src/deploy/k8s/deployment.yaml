@@ -16,4 +16,4 @@ spec:
       - name: nodejs-app
         image: nodejs-app:1.0
         ports:
-        - containerPort: 3000
+        - containerPort: 6767
