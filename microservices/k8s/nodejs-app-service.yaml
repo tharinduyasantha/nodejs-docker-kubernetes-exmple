@@ -10,4 +10,3 @@ spec:
     nodePort: 30001
   selector:
     app: nodejs-app
-

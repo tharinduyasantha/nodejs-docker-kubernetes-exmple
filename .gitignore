@@ -284,6 +284,9 @@ FakesAssemblies/
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 node_modules/
+microservices/publisher/node_modules/
+microservices/subscriber/node_modules/
+microservices/rabbitmq/node_modules/
 
 # Visual Studio 6 build log
 *.plg

@@ -4,12 +4,12 @@ FROM node:14
 WORKDIR /app
 
 # Copy everything from the root directory to the working directory in the container
-COPY ../../../ ./
-
+COPY ../../../../package*.json ./
 # Install dependencies
 RUN npm install
 
-COPY . .
+COPY ../../../../ ./
+
 # Expose the necessary port
 EXPOSE 6767
 

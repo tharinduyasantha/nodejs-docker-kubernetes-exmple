@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-app
+  labels:
+    app: nodejs-app
 spec:
   replicas: 2
   selector:
@@ -14,6 +16,12 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: nodejs-app:1.0
+        image: tharinduyasantha/nodejs-app
         ports:
         - containerPort: 6767
+        env:
+        - name: RABBITMQ_URL
+          valueFrom:
+            configMapKeyRef:
+              name: nodejs-config
+              key: RABBITMQ_URL
