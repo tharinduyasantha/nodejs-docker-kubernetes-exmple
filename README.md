@@ -60,7 +60,7 @@ The deployment process involves several steps:
 ### Prerequisites
 To work with this application, you need:
 - Docker installed on your machine.
-- Kubernetes cluster set up (Minikube, EKS, GKE, etc.).
+- Kubernetes cluster set up (Minikube etc.).
 - Skaffold installed for easy deployment and testing.
 - RabbitMQ setup either locally or in the cluster.
 - Rancher Desktop (This will smoothen the process of installing Docker and K8s)
