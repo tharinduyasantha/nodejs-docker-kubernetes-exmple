@@ -12,7 +12,6 @@ This README provides a detailed guide to the architecture and deployment of a No
 - [Useful Commands](#useful-commands)
 - [Node.js Docker Kubernetes RabbitMQ Example](#nodejs-docker-kubernetes-rabbitmq-example)
   - [Prerequisites](#prerequisites)
-  - [Directory Structure](#directory-structure)
   - [Docker Configuration](#docker-configuration)
   - [Kubernetes Configuration](#kubernetes-configuration)
   - [Skaffold Configuration](#skaffold-configuration)
@@ -42,13 +41,20 @@ The deployment process involves several steps:
 4. **Managing with kubectl**: Use kubectl commands to manage the Kubernetes resources.
 
 ## Useful Commands
-- `kubectl get pods`: List all pods in the current namespace.
-- `kubectl get deployments`: Display the current deployments.
-- `kubectl describe pod <pod-name>`: Get detailed information about a specific pod.
-- `kubectl logs <pod-name>`: Fetch the logs of a pod. Useful for debugging.
-- `kubectl apply -f <file.yaml>`: Apply a configuration to a resource by filename or stdin.
-- `kubectl delete -f <file.yaml>`: Delete resources using the configuration in the file.
-- `kubectl port-forward svc/my-service 8080:80`: Forward port 8080 on the local machine to port 80 on the service `my-service`. Useful for local testing.
+- `kubectl get nodes -o wide`: List all nodes in the Kubernetes cluster, providing details like status, roles, and IP addresses.
+- `kubectl get pods`: List all pods in the current namespace, showing their status, restarts, and age.
+- `kubectl get svc`: List all services in the current namespace, showing their types, cluster IPs, external IPs, and ports.
+- `kubectl describe pod <pod-name>`: Provide detailed information about a specific pod, including events and resource usage.
+- `kubectl describe svc <service-name>`: Provide detailed information about a specific service, including its endpoints and selectors.
+- `kubectl apply -f <file.yaml>`: Apply a configuration to a resource by filename or stdin. Used to create or update resources defined in YAML files.
+- `kubectl port-forward svc/<service-name> <local-port>:<service-port>`: Forward one or more local ports to a pod, making it accessible on localhost.
+- `kubectl logs <pod-name>`: Fetch the logs of a specific pod. Useful for debugging and monitoring applications.
+- `kubectl delete <resource-type> <resource-name>`: Delete resources such as pods, services, or deployments by name.
+- `kubectl get configmap`: List all ConfigMaps in the current namespace.
+- `kubectl describe configmap <configmap-name>`: Provide detailed information about a specific ConfigMap.
+- `kubectl get deployments`: List all deployments in the current namespace, showing their status and number of replicas.
+- `kubectl describe deployment <deployment-name>`: Provide detailed information about a specific deployment.
+`my-service`. Useful for local testing.
 
 ## Node.js Docker Kubernetes RabbitMQ Example
 ### Prerequisites
@@ -58,9 +64,6 @@ To work with this application, you need:
 - Skaffold installed for easy deployment and testing.
 - RabbitMQ setup either locally or in the cluster.
 - Rancher Desktop (This will smoothen the process of installing Docker and K8s)
-
-### Directory Structure
-The repository is structured as follows:
 
 ### Docker Configuration
 Each microservice has its own `Dockerfile` which defines how the Docker image for that service is built. The Dockerfiles include the application's dependencies and the command to run the application.
