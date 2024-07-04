@@ -5,9 +5,9 @@ metadata:
 spec:
   selector:
     app: subscriber
-    type: NodePort
+  type: NodePort
   ports:
-    - protocol: TCP
-      port: 7879
-      targetPort: 7879
-      nodePort: 30002
+  - protocol: TCP
+    port: 7879
+    targetPort: 7879
+    nodePort: 30002

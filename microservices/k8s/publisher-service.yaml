@@ -8,7 +8,7 @@ spec:
   type: NodePort
   ports:
   - protocol: TCP
-    port: 6767
-    targetPort: 6767
+    port: 7878
+    targetPort: 7878
     nodePort: 30001
   
