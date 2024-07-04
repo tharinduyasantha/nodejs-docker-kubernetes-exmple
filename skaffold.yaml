@@ -1,0 +1,23 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: nodejs-docker-kubernetes-rabbitmq-example
+build:
+  artifacts:
+    - image: tharinduyasantha/publisher-node
+      context: microservices/publisher
+      docker:
+        dockerfile: Dockerfile
+    - image: tharinduyasantha/subscriber-node
+      context: microservices/subscriber
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - microservices/k8s/publisher-deployment.yaml
+    - microservices/k8s/publisher-service.yaml
+    - microservices/k8s/rabbitmq-configmap.yaml
+    - microservices/k8s/rabbitmq-deployment.yaml
+    - microservices/k8s/rabbitmq-service.yaml
+    - microservices/k8s/subscriber-deployment.yaml
+    - microservices/k8s/subscriber-service.yaml

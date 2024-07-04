@@ -1,27 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
-  labels:
-    app: nodejs-app
+  name: publisher-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: nodejs-app
+      app: publisher
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: publisher
     spec:
       containers:
-      - name: nodejs-app
-        image: tharinduyasantha/nodejs-app
+      - name: publisher
+        image: tharinduyasantha/publisher-node:latest
         ports:
-        - containerPort: 6767
+        - containerPort: 7878
         env:
         - name: RABBITMQ_URL
           valueFrom:
             configMapKeyRef:
-              name: nodejs-config
+              name: rabbitmq-config
               key: RABBITMQ_URL
